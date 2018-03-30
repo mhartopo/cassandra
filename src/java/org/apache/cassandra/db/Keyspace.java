@@ -251,9 +251,14 @@ public class Keyspace
      */
     public List<SSTableReader> getAllSSTables()
     {
+        logger.debug("@@muhtar start allocate list for getAllSSTables");
         List<SSTableReader> list = new ArrayList<>(columnFamilyStores.size());
+        logger.debug("@@muhtar start allocate list for getAllSSTables");
+
+        logger.debug("@@muhtar start init list for getAllSSTables");
         for (ColumnFamilyStore cfStore : columnFamilyStores.values())
             list.addAll(cfStore.getSSTables());
+        logger.debug("@@muhtar finish init list for getAllSSTables");
         return list;
     }
 
